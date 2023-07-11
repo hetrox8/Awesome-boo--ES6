@@ -1,6 +1,6 @@
-import updateDom from './Modules/updateDom.js';
-import BookShelf from './Modules/BookManager.js';
-import ShowTime from './Modules/ShowTime.js';
+import updateDom from './modules/updateDom.js';
+import BookShelf from './modules/BookManager.js';
+import ShowTime from './modules/ShowTime.js';
 import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 
 const container = document.querySelector('#bookList');
