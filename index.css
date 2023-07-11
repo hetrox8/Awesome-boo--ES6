@@ -54,6 +54,7 @@ hr.line1 {
 h1.heading,
 h2.heading {
   text-align: center;
+  text-transform: capitalize;
 }
 
 .book-list {
