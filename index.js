@@ -1,6 +1,6 @@
-import updateDom from './Modules/updateDom.js';
-import BookShelf from './Modules/BookManager.js';
-import { Date } from './Modules/ShowTime.js';
+import updateDom from './modules/updateDom.js';
+import BookShelf from './modules/BookManager.js';
+import { Date } from './modules/ShowTime.js';
 
 const container = document.querySelector('#bookList');
 const form = document.querySelector('#addForm');
