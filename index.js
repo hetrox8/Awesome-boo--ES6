@@ -1,7 +1,7 @@
 import updateDom from './Modules/updateDom.js';
 import BookShelf from './Modules/BookManager.js';
 import ShowTime from './Modules/ShowTime.js';
-import { DateTime } from './node_modules/luxon/src/luxon.js';
+import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 
 const container = document.querySelector('#bookList');
 const form = document.querySelector('#addForm');
