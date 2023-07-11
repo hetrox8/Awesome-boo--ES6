@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  text-transform: Capitalize;
+  text-transform: capitalize;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -128,15 +128,15 @@ footer p {
   width: 40%;
 }
 
+#addForm button {
+  /* width: fit-content; */
+  border: solid 2px;
 
-  #addForm button {
-    /* width: fit-content; */
-    border: solid 2px;
-    /* margin-left: auto; */
-    font-size: large;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* margin-left: auto; */
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #addForm input {
@@ -169,9 +169,4 @@ footer {
   bottom: 0;
   width: 98%;
   margin-top: 3%;
-}
-
-footer p {
-  margin: 1% 0;
-  padding: 0;
 }
