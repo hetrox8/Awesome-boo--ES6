@@ -1,5 +1,5 @@
 function ShowTime(time) {
-    const Time = document.querySelector('#date-time');
+    const Time = document.querySelector('#date_Display');
     setInterval(() => {
       const now = time.now();
       let formattedDateTime = now.toFormat("MMMM d'th' yyyy, h:mm:ss a");

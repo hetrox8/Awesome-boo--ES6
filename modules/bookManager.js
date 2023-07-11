@@ -1,54 +1,68 @@
-export class BookManager {
-    static getStoredBooks() {
-      if (localStorage.getItem('AddedBooks') === null) {
-        localStorage.setItem('AddedBooks', JSON.stringify([]));
-      }
-      return JSON.parse(localStorage.getItem('AddedBooks'));
+class BookShelf {
+    constructor(container, title, author) {
+      this.title = title;
+      this.author = author;
+      this.container = container;
+      this.listItem = document.createElement('ul');
     }
   
-    static updateStoredBooks(books) {
-      localStorage.setItem('AddedBooks', JSON.stringify(books));
+    // eslint-disable-next-line class-methods-use-this
+    Storage() {
+      let books = [];
+      try {
+        const storedBooks = localStorage.getItem('books');
+        if (storedBooks) {
+          books = JSON.parse(storedBooks);
+          if (!Array.isArray(books)) {
+            books = [];
+          }
+        }
+      } catch {
+        books = [];
+      }
+  
+      return books;
     }
   
-    static addNewBook = (bookTitle, bookAuthor) => {
-      const storedBooks = BookManager.getStoredBooks();
-      const newBook = {
-        title: bookTitle,
-        author: bookAuthor,
-      };
-      storedBooks.push(newBook);
-      BookManager.updateStoredBooks(storedBooks);
-      BookManager.displayBooks(storedBooks);
-    };
+    updateStorage() {
+      const books = this.Storage();
+      const newBook = { title: this.title, author: this.author };
+      books.push(newBook);
+      localStorage.setItem('books', JSON.stringify(books));
+    }
   
-    static removeBook = (i) => {
-      const storedBooks = BookManager.getStoredBooks();
-      storedBooks.splice(i, 1);
-      BookManager.updateStoredBooks(storedBooks);
-      BookManager.displayBooks();
-    };
+    renderBooks() {
+      const books = this.Storage();
+      this.container.innerHTML = '';
+      this.listItem.innerHTML = '';
+      const reversedBooks = books.slice().reverse();
+      reversedBooks.forEach((book) => {
+        const li = document.createElement('li');
+        const p = document.createElement('p');
+        const removeButton = document.createElement('button');
   
-    static createBookListHTML = (books) => {
-      let bookListHTML = '';
-      for (let i = 0; i < books.length; i += 1) {
-        const { title, author } = books[i];
-        bookListHTML += `
-        <li class="book-list">
-          <p>"${title}" by "${author}"</p>
-          <button onClick="BookManager.removeBook(${i})">Remove</button>
-        </li>
-        `;
-      }
-      return bookListHTML;
-    };
+        p.textContent = `'${book.title}' by '${book.author}'`;
+        removeButton.textContent = 'Remove';
   
-    static displayBooks = () => {
-      const bookContainer = document.querySelector('.book-container');
-      const storedBooks = BookManager.getStoredBooks();
-      const bookListHTML = BookManager.createBookListHTML(storedBooks);
-      bookContainer.innerHTML = `
-        <ul class="book-ul">${bookListHTML}</ul>
-      `;
-    };
+        li.appendChild(p);
+        li.appendChild(removeButton);
+  
+        this.listItem.appendChild(li);
+  
+        removeButton.addEventListener('click', () => {
+          this.removeBook(book.title, book.author);
+          this.renderBooks();
+        });
+      });
+      this.container.appendChild(this.listItem);
+      this.listItem.classList.add('book-list');
+    }
+  
+    removeBook(title, author) {
+      let books = this.Storage();
+      books = books.filter((book) => !(book.title === title && book.author === author));
+      localStorage.setItem('books', JSON.stringify(books));
+    }
   }
   
+  export default BookShelf;
