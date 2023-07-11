@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Awesome Books</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Books</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <nav id="Navbar">
@@ -16,22 +15,19 @@
       <li><a href="#" data-target = '#contacts'>Contacts</a></li>
     </ul>
   </nav>
-  <div id="date-time"></div>
-  
-  <div id="container-home" class="Main">
-  <h1 class="heading">All Awesome Books</h1>
-  <!-- Container for the loaded books -->
-  <div class="book-container">
+  <div id="date_Display"></div>
 
-  </div>
-  </div>
-  <!-- Form -->
+  <section id="container-home" class="Main">
+    <h1 class="heading">All Awesome Books</h1>
+    <div id="bookList"></div>
+  </section>
+
   <section id="Add-Book" class="Main">
     <h1 class="heading">Add a new book</h1>
-    <form class="book-form">
-      <input type="text" placeholder="Title" class="book-title"><br>
-      <input type="text" placeholder="Author" class="book-author"><br>
-      <button type="submit" class="btn-submit">Add</button>
+    <form id="addForm">
+      <input type="text" id="titleInput" placeholder="Title" required> <br>
+      <input type="text" id="authorInput" placeholder="Author" required> <br>
+      <button type="submit">Add</button>
     </form>
   </section>
 
@@ -50,10 +46,9 @@
   </section>
 
   <footer>
-    <p>Copyright Hamid And Suleiman</p>
+    &copy Suleiman  2023
   </footer>
-  <script type="module src="index.js"></script>
-  <script type="module" src="bookManager.js"></script>
-<script type="module" src="domUpdater.js"></script>
+
+  <script src="index.js" type="module"></script>
 </body>
 </html>

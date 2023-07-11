@@ -1,15 +1,10 @@
 * {
   box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 {
-  font-size: 32px;
-}
-
-body {
-  height: 100vh;
-  margin: 0;
-  padding: 0 1%;
+  font-size: 3vw;
 }
 
 #Navbar {
@@ -45,43 +40,75 @@ body {
   color: black;
 }
 
-hr.line1 {
-  border-top: 1px solid black;
-  width: 10%;
-  margin: 20px auto;
+#date-time {
+  text-align: end;
 }
 
-h1.heading,
-h2.heading {
+.heading {
   text-align: center;
-  text-transform: capitalize;
+}
+
+#bookList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .book-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0 2%;
-  font-size: medium;
-  font-weight: 600;
+  list-style: none;
+  border: solid;
+  padding: 0;
+  height: fit-content;
+  width: 40%;
 }
 
-.book-list button {
+div#date_Display {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.book-list li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.book-list li:nth-child(odd) {
+  background-color: silver;
+}
+
+.book-list li:nth-child(even) {
+  background-color: white;
+}
+
+footer p {
+  margin: 1% 0;
+  padding: 0;
+}
+
+.book-list li p {
+  font-weight: 600;
+  font-size: larger;
+  margin: 0;
+}
+
+.book-list li button {
   border: solid 2px;
+  margin: 0 0 0 auto;
+  font-weight: 600;
+  height: fit-content;
+}
+
+.book-list li button:hover {
+  cursor: pointer;
 }
 
 #container-home {
-  margin-bottom: 3%;
   display: flex;
   flex-direction: column;
-}
-
-.book-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
 
 #Add-Book {
@@ -93,44 +120,28 @@ h2.heading {
   padding-bottom: 3%;
 }
 
-.book-form {
+#addForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 50%;
-  gap: 3%;
-  margin-top: 5%;
+  margin: 0 auto;
+  width: 40%;
 }
 
-.book-form input {
-  width: 100%;
+
+  #addForm button {
+    /* width: fit-content; */
+    border: solid 2px;
+    /* margin-left: auto; */
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addForm input {
   border: solid 2px;
-  font-size: large;
-}
-
-.book-form button {
-  margin-left: auto;
-}
-
-.btn-submit {
-  width: 50px;
-  height: 25px;
-  margin-top: 10px;
-  border: solid 2px;
-}
-
-.book-list:nth-child(even) {
-  background-color: silver;
-}
-
-.book-list:nth-child(odd) {
-  background-color: white;
-}
-
-.book-ul {
-  border: solid 2px;
-  padding: 0;
-  width: 100%;
+  outline: none;
+  padding: 1%;
 }
 
 #contacts {
@@ -157,9 +168,4 @@ footer {
   bottom: 0;
   width: 98%;
   margin-top: 3%;
-}
-
-footer p {
-  margin: 1% 0;
-  padding: 0;
 }
